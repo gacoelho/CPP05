@@ -1,7 +1,8 @@
 #ifndef FORM_HPP
-#define FORM_HPP
-#include "Bureaucrat.hpp"
+# define FORM_HPP
+# include "Bureaucrat.hpp"
 
+class Bureaucrat;
 class Form
 {
     private:
@@ -20,7 +21,7 @@ class Form
         bool getSigned() const;
         int getGradeRequire() const;
         int getGradeExecute() const;
-        void beSigned(Bureaucrat const &bureaucrat);
+        void beSigned(const Bureaucrat& bureaucrat);
         class GradeTooHighException : public std::exception {
             public:
                 virtual const char* what() const throw();
