@@ -1,36 +1,19 @@
-#ifndef AFORM_HPP
-# define AFORM_HPP
-# include "Bureaucrat.hpp"
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+# include "AForm.hpp"
 
-class Bureaucrat;
-class AForm
+class RobotomyRequestForm : public AForm
 {
     private:
-        std::string const _name;
-        bool              _sign;
-        const int        _grade_r;
-        const int        _grade_x;
+        std::string _target;
     public:
-        AForm(void);
-        AForm(std::string const name,int const grade_r, int const grade_x);
-        AForm(AForm const &copy);
-        AForm &operator=(AForm const &copy);
-        ~AForm(void);
-
-        std::string getName() const;
-        bool getSigned() const;
-        int getGradeRequire() const;
-        int getGradeExecute() const;
-        void beSigned(const Bureaucrat& bureaucrat);
-        class GradeTooHighException : public std::exception {
-            public:
-                virtual const char* what() const throw();
-        };
-        class GradeTooLowException : public std::exception {
-            public:
-                virtual const char* what() const throw();
-        };
+        RobotomyRequestForm(void);
+        RobotomyRequestForm(std::string const name);
+        RobotomyRequestForm(RobotomyRequestForm const &copy);
+        RobotomyRequestForm &operator=(RobotomyRequestForm const &copy);
+        ~RobotomyRequestForm(void);
+        void execute(Bureaucrat const & executor) const;
 };
-std::ostream &operator <<(std::ostream &o, AForm const &c);
+std::ostream &operator <<(std::ostream &o, RobotomyRequestForm const &c);
 
 #endif
