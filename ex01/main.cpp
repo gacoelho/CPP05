@@ -1,24 +1,17 @@
 #include "Bureaucrat.hpp"
 
-int main(void)
+int main( void )
 {
-    try
-    {
-        Bureaucrat b("Bureaucrat", 0);
-        try
-        {
-            b.decrementGrade();
-        }
-        catch (std::exception & e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-        std::cout << b << std::endl;
+
+    try {
+        Bureaucrat bureaucrat("ash",11);
+        Form form("formName", 10, 100);
+
+        bureaucrat.signForm(form);
+
+        std::cout << form << std::endl;
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
     }
-    catch (std::exception & e)
-    {
-        std::cout << "Grade out of range " << e.what() << std::endl;
-        return (0);
-    }
-    return(0);
+    return 0;
 }
