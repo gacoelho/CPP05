@@ -25,6 +25,10 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm &c
     return *this;
 }
 
+RobotomyRequestForm::~RobotomyRequestForm(void){
+   std::cout << "Destructor called:" << std::endl; 
+}
+
 void RobotomyRequestForm::execute(Bureaucrat const & exec) const
 {
     if (this->getSigned() == false)
@@ -33,8 +37,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & exec) const
         throw AForm::GradeTooLowException();
     else
     {
-        srand(time(0));
-        if (rand() % 2 == 0)
+        std::srand(time(0));
+        if (std::rand() % 2 == 0)
             std::cout << this->_target << " has been robotomized" << std::endl;
         else
             std::cout << this->_target << " could not be robotomized" << std::endl;

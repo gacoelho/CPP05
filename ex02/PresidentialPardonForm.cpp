@@ -17,6 +17,9 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &cop
     std::cout << "Copy Presidential PardonForm construtor called" << std::endl;
     *this = copy;
 }
+PresidentialPardonForm::~PresidentialPardonForm(void){
+   std::cout << "Destructor called:" << std::endl; 
+}
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &copy)
 {

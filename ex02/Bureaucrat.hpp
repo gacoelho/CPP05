@@ -6,7 +6,7 @@
 # include <string>
 # include "AForm.hpp"
 
-class Form;
+class AForm;
 class Bureaucrat
 {
     private:
