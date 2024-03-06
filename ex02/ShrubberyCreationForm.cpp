@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) 
 ShrubberyCreationForm::~ShrubberyCreationForm(void){
    std::cout << "Destructor called:" << std::endl; 
 }
-std::string ShrubberyCreationForm::getTarget()
+std::string ShrubberyCreationForm::getTarget() const
 {
     return this->_target;
 }
@@ -41,7 +41,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & exec) const
     else if (exec.getGrade() > this->getGradeExecute())
         throw AForm::GradeTooLowException();
     std::ofstream file;
-    file.open((this->getTarget() + "_shrubbery").c_str(), std::ofstream::in | std::ofstream::trunc);
+    file.open((getTarget() + "_shrubbery").c_str(), std::ofstream::in | std::ofstream::trunc);
     file << "       _-_" << std::endl;
     file << "    /~~   ~~\\" << std::endl;
     file << " /~~         ~~\\" << std::endl;
